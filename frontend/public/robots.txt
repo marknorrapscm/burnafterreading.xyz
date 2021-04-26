@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+# Allow the root only, disallow everything else
+user-agent: *
+Allow: /$
+Disallow: /

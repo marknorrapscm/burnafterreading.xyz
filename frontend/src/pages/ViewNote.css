@@ -1,0 +1,12 @@
+.view-note-card {
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 49vh;
+    border: 1px solid #d5d5d5;
+    text-align: center;
+}
+
+.message-textarea {
+    padding: 10px 12px;
+    background-color: #ffface;
+}

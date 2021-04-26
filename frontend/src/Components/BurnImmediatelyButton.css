@@ -1,0 +1,10 @@
+.burn-btn {
+    margin-left: auto;
+}
+
+@media (max-width: 575px) {
+    .burn-btn {
+        width: 100% !important;
+        margin-top: 8px !important;
+    }
+}

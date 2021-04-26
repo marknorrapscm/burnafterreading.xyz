@@ -1,0 +1,15 @@
+
+.burn-bnt {
+    margin-left: auto;
+}
+
+@media (max-width: 575px) {
+    .info-btn {
+        width: 100%;
+    }
+    
+    .burn-btn {
+        width: 100% !important;
+        margin-top: 8px !important;
+    }
+}
