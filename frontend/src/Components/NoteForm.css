@@ -1,0 +1,38 @@
+.message-textarea {
+    padding: 10px 12px;
+    background-color: #ffface;
+}
+
+.microphone-button {
+    height: unset;
+    margin: auto;
+    padding: 8px 24px;
+    background-color: #f7f7f7;
+    border-color: #c5c5c5;
+    color: #424242;
+}
+
+.microphone-button svg {
+    fill: #a0a0a0;
+    margin-top: 10px;
+}
+
+.microphone-button:hover svg {
+    fill: #FFF !important;
+    transition: 500ms;
+}
+
+.microphone-button svg.tick {
+    fill: #00c20c !important
+}
+
+.no-left-border-radius input {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.options-divider {
+    margin-top: 32px !important;
+    margin-bottom: 16px !important;
+    border-top-color: #bbbbbb !important;
+}
