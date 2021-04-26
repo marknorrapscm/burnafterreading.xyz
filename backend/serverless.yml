@@ -1,0 +1,85 @@
+service: burn-after-reading
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  stage: dev
+  runtime: nodejs12.x
+  region: eu-west-1
+  logRetentionInDays: 90
+  apiGateway:
+    minimumCompressionSize: 1024
+  environment:
+    stage: ${opt:stage, self:provider.stage}
+    tableName: ${file(./env.yml):tableName}
+    bucketName: burnafterreading-audio-clips
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+       - dynamodb:Query
+       - dynamodb:Scan
+       - dynamodb:GetItem
+       - dynamodb:PutItem
+       - dynamodb:UpdateItem
+       - dynamodb:DeleteItem
+      Resource: 
+        - ${file(./env.yml):devTableArn}
+        - ${file(./env.yml):prodTableArn}
+    - Effect: "Allow"
+      Action:
+       - s3:GetObject
+       - s3:PutObject
+       - s3:PutObjectAcl
+      Resource: 
+        - ${file(./env.yml):devBucketArn}/*
+        - ${file(./env.yml):prodBucketArn}/*
+
+plugins:
+  - serverless-offline
+  - serverless-api-compression
+
+functions:
+  hello:
+    handler: src/handlers/handler.hello
+    events:
+      - http:
+          path: /hello
+          method: get
+          cors: true
+  createNote:
+    handler: src/handlers/write.createNote
+    layers:
+      - ${file(./env.yml):bcryptLambdaArn}
+    events:
+      - http:
+          path: /createNote
+          method: post
+          cors: true
+  getNote:
+    handler: src/handlers/read.getNote
+    layers:
+      - ${file(./env.yml):bcryptLambdaArn}
+    events:
+      - http:
+          path: /getNote
+          method: get
+          cors: true
+  burnNoteImmediately:
+    handler: src/handlers/write.burnNoteImmediately
+    events:
+      - http:
+          path: /burnNoteImmediately
+          method: get
+          cors: true
+  getAudioUploadUrl:
+    handler: src/handlers/upload.getAudioUploadUrl
+    events:
+      - http:
+          path: /getAudioUploadUrl
+          method: get
+          cors: true
+  
