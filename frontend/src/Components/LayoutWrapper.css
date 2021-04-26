@@ -1,0 +1,47 @@
+.site-content {
+    margin-top: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.footer {
+    background: #e7e7e7;
+    margin-top: 100px;
+    border-top: 1px solid #c1c1c1;
+    padding-top: 15px;
+    padding-bottom: 50px;
+    color: #9c9c9c;
+
+}
+
+.footer .link a {
+    color: #9c9c9c;
+    text-decoration: underline;
+}
+
+.footer .spacer {
+    margin: 0 6px;
+}
+
+@media (max-width: 428px) {
+    .site-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .ant-layout-header {
+        padding-left: 0 !important;
+    }
+
+    .logo-text {
+        font-size: 2em !important;
+    }
+}
+
+/* Remove the hover colors on menu items */
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+    background-color: #001529 !important;
+}
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background-color: #001529 !important;
+}

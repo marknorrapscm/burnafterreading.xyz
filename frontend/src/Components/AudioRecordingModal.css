@@ -1,0 +1,38 @@
+/* 
+    These settings are overrides for the react-voice-recorder plugin. Unfortunately
+    it's using generated class names. 
+*/
+
+/* Wrapper for entire audio container: change padding */
+._1ceqH ._2fG9h {
+    padding: 15px 0 0 0;
+}
+
+/* Make minHeight and background color of the main box */
+._1ceqH ._dt3-T {
+    min-height: 360px;
+    background: #000e1b;
+}
+
+/* Center align the "Press the microphone..." text */
+._1ceqH ._1YOWG ._eV_dK {
+    text-align: center;
+}
+
+/* Make the btn color's consistent */
+._1Pz2d {
+    height: 32px !important;
+    padding: 4px 15px !important;
+    font-size: 14px !important;
+    border-radius: 2px !important;
+}
+
+._1Pz2d.undefined {
+    background: #1890ff !important;
+    border-color: #1890ff !important;
+}
+
+/* Change the upload / clear btn's positioning */
+._1ceqH ._1Yplu {
+    margin: 20px 22px;
+}
