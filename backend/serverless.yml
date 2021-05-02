@@ -37,6 +37,11 @@ provider:
       Resource: 
         - ${file(./env.yml):devBucketArn}/*
         - ${file(./env.yml):prodBucketArn}/*
+    - Effect: "Allow"
+      Action:
+       - ses:SendEmail
+      Resource: 
+        - ${file(./env.yml):sesArn}
 
 plugins:
   - serverless-offline
