@@ -1,6 +1,7 @@
 const burnNote = require("../application/burn-note");
 const createNote = require("../application/create-note");
 const responseFactory = require("../domain/factories/response-factory");
+const logError = require("../utility/log-error");
 
 module.exports.createNote = async event => {
 	try {
@@ -12,6 +13,7 @@ module.exports.createNote = async event => {
 			burnImmediatelyHash: res.burnImmediatelyHash
 		});
 	} catch (e) {
+		logError(e, "createNote()");
 		return responseFactory(false, e.message);
 	}
 };
@@ -25,6 +27,7 @@ module.exports.burnNoteImmediately = async event => {
 			result: res
 		});
 	} catch (e) {
+		logError(e, "burnNoteImmediately()");
 		return responseFactory(false, e.message);
 	}
 };
